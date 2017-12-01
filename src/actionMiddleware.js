@@ -1,7 +1,7 @@
 export function createMiddleware() {
   const listeners = [];
 
-  const middleware = () => {};
+  const middleware = () => () => {};
 
   middleware.addListener = () => {};
   middleware.addListeners = () => {};
