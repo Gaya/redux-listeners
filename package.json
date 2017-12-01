@@ -1,0 +1,28 @@
+{
+  "name": "redux-action-middleware",
+  "version": "0.1.0",
+  "description": "Redux middleware which allows the user to acts upon fired action types",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaya/redux-action-middleware.git"
+  },
+  "keywords": [
+    "redux",
+    "action-middleware",
+    "middleware",
+    "redux-middleware"
+  ],
+  "author": "Gaya Kessler <gaya@theclevernode.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gaya/redux-action-middleware/issues"
+  },
+  "homepage": "https://github.com/Gaya/redux-action-middleware#readme"
+}
