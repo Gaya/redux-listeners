@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "build": "babel src/actionMiddleware.js --out-file lib/actionMiddleware.js",
     "test": "tape -r babel-register test/actionMiddleware.js"
   },
   "repository": {
