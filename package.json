@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": ""
+    "test": "tape -r babel-register test/actionMiddleware.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/Gaya/redux-action-middleware/issues"
   },
-  "homepage": "https://github.com/Gaya/redux-action-middleware#readme"
+  "homepage": "https://github.com/Gaya/redux-action-middleware#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "tape": "^4.8.0"
+  }
 }
