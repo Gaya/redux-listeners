@@ -14,7 +14,7 @@ Includes the store's dispatch to execute actions when a listener is fired.
 
 ## Usage
 
-```
+```js
 import { createStore, applyMiddleware } from 'redux';
 import { createMiddleware } from 'redux-action-middleware';
 
