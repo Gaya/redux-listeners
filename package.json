@@ -2,7 +2,7 @@
   "name": "redux-action-middleware",
   "version": "0.1.0",
   "description": "Redux middleware which allows the user to acts upon fired action types",
-  "main": "lib/index.js",
+  "main": "lib/actionMiddleware.js",
   "directories": {
     "lib": "lib"
   },
