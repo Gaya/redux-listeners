@@ -75,3 +75,34 @@ test('Ability to register multiple action types', (t) => {
 
   t.end();
 });
+
+test('Actions will be dispatched afterwards', (t) => {
+  t.plan(4);
+
+  const actionMiddleware = createMiddleware();
+
+  let increment = 0;
+
+  actionMiddleware.addListener('TEST', (dispatch) => {
+    t.equal(increment, 0, 'First fire listener');
+
+    increment++;
+
+    dispatch({ type: 'ANOTHER' });
+  });
+
+  const dispatchableStore = {
+    dispatch(action) {
+      t.equal(increment, 2, 'After all dispatch to store');
+      t.equal(action.type, 'ANOTHER', 'After all dispatch to store with the correct type');
+    },
+  };
+
+  const middleware = actionMiddleware(dispatchableStore)(() => {
+    t.equal(increment, 1, 'Call next middleware after listeners');
+
+    increment++;
+  });
+
+  middleware({ type: 'TEST' });
+});
