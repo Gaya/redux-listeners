@@ -46,7 +46,7 @@ listenMiddleware.addListener('FETCH_DATA', (dispatch) => {
     .catch(err => dispatch({ type: 'FETCH_DATA_FAILED', payload: err }));
 });
 
-actionMiddleware.addListener('FETCH_DATA_FAILED', (dispatch, action) => {
+listenMiddleware.addListener('FETCH_DATA_FAILED', (dispatch, action) => {
   // display the error in console by reading the action
   console.error(action.payload.message);
 });
