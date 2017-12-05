@@ -1,8 +1,8 @@
 {
-  "name": "redux-action-middleware",
+  "name": "redux-listeners",
   "version": "0.1.0",
-  "description": "Redux middleware which allows the user to acts upon fired action types",
-  "main": "lib/actionMiddleware.js",
+  "description": "Redux middleware which allows listening in on and handling of dispatched actions",
+  "main": "lib/listenerMiddleware.js",
   "directories": {
     "lib": "lib"
   },
@@ -11,24 +11,26 @@
     "build": "babel src --out-dir lib",
     "prepublish": "npm run clean && npm run test && npm run build",
     "postinstall": "npm run build",
-    "test": "tape -r babel-register test/actionMiddleware.js"
+    "test": "tape -r babel-register test/listenerMiddleware.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gaya/redux-action-middleware.git"
+    "url": "git+https://github.com/Gaya/redux-listeners.git"
   },
   "keywords": [
     "redux",
     "action-middleware",
+    "listeners",
+    "listener-middleware",
     "middleware",
     "redux-middleware"
   ],
   "author": "Gaya Kessler <gaya@theclevernode.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Gaya/redux-action-middleware/issues"
+    "url": "https://github.com/Gaya/redux-listeners/issues"
   },
-  "homepage": "https://github.com/Gaya/redux-action-middleware#readme",
+  "homepage": "https://github.com/Gaya/redux-listeners#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",

@@ -1,32 +1,32 @@
 import test from 'tape';
 
-import { createMiddleware } from '../src/actionMiddleware';
+import { createMiddleware } from '../src/listenerMiddleware';
 
 const mockStore = {
   dispatch() {},
 };
 
 test('Creating middleware', (t) => {
-  const actionMiddleware = createMiddleware();
+  const listenMiddleware = createMiddleware();
 
-  t.equal(typeof actionMiddleware, 'function', 'Should return a function');
-  t.equal(typeof actionMiddleware(), 'function', 'Should return a function returning a function');
-  t.equal(typeof actionMiddleware.addListener, 'function', 'Should have addListener function');
-  t.equal(typeof actionMiddleware.addListeners, 'function', 'Should have addListeners function');
+  t.equal(typeof listenMiddleware, 'function', 'Should return a function');
+  t.equal(typeof listenMiddleware(), 'function', 'Should return a function returning a function');
+  t.equal(typeof listenMiddleware.addListener, 'function', 'Should have addListener function');
+  t.equal(typeof listenMiddleware.addListeners, 'function', 'Should have addListeners function');
 
   t.end();
 });
 
 test('Ability to register listeners', (t) => {
-  const actionMiddleware = createMiddleware();
+  const listenMiddleware = createMiddleware();
 
   let changeThis = '';
   let changeThat = '';
 
-  actionMiddleware.addListener('TEST', () => { changeThis = 'Hello'; });
-  actionMiddleware.addListener('TEST', () => { changeThat = 'Testing'; });
+  listenMiddleware.addListener('TEST', () => { changeThis = 'Hello'; });
+  listenMiddleware.addListener('TEST', () => { changeThat = 'Testing'; });
 
-  const middleware = actionMiddleware(mockStore)(() => {});
+  const middleware = listenMiddleware(mockStore)(() => {});
   middleware({ type: 'TEST' });
 
   t.equal(changeThis, 'Hello', 'Run listener after a dispatch');
@@ -36,18 +36,18 @@ test('Ability to register listeners', (t) => {
 });
 
 test('Ability to register multiple listeners at once', (t) => {
-  const actionMiddleware = createMiddleware();
+  const listenMiddleware = createMiddleware();
 
   let changeThis = '';
   let changeThat = '';
 
-  actionMiddleware.addListeners(
+  listenMiddleware.addListeners(
     'TEST',
     () => { changeThis = 'Hello'; },
     () => { changeThat = 'Testing'; },
   );
 
-  const middleware = actionMiddleware(mockStore)(() => {});
+  const middleware = listenMiddleware(mockStore)(() => {});
   middleware({ type: 'TEST' });
 
   t.equal(changeThis, 'Hello', 'Run listener after a dispatch');
@@ -57,13 +57,13 @@ test('Ability to register multiple listeners at once', (t) => {
 });
 
 test('Ability to register multiple action types', (t) => {
-  const actionMiddleware = createMiddleware();
+  const listenMiddleware = createMiddleware();
 
   let increment = 0;
 
-  actionMiddleware.addListener(['TEST', 'ANOTHER'], () => { increment++ });
+  listenMiddleware.addListener(['TEST', 'ANOTHER'], () => { increment++ });
 
-  const middleware = actionMiddleware(mockStore)(() => {});
+  const middleware = listenMiddleware(mockStore)(() => {});
 
   middleware({ type: 'TEST' });
   t.equal(increment, 1, 'Listen to first action type');
@@ -77,11 +77,11 @@ test('Ability to register multiple action types', (t) => {
 test('Actions will be dispatched afterwards', (t) => {
   t.plan(4);
 
-  const actionMiddleware = createMiddleware();
+  const listenMiddleware = createMiddleware();
 
   let increment = 0;
 
-  actionMiddleware.addListener('TEST', (dispatch) => {
+  listenMiddleware.addListener('TEST', (dispatch) => {
     t.equal(increment, 0, 'First fire listener');
 
     increment++;
@@ -96,7 +96,7 @@ test('Actions will be dispatched afterwards', (t) => {
     },
   };
 
-  const middleware = actionMiddleware(dispatchableStore)(() => {
+  const middleware = listenMiddleware(dispatchableStore)(() => {
     t.equal(increment, 1, 'Call next middleware after listeners');
 
     increment++;

@@ -1,9 +1,9 @@
-# Redux Action Middleware
+# Redux Listeners
 
-Redux middleware which allows the user to acts upon fired action types to the store.
+Redux middleware which allows listening in on and handling of dispatched actions
 
 ```
-npm install --save redux-action-middleware
+npm install --save redux-listeners
 ```
 
 ## Who needs this?
@@ -16,25 +16,25 @@ Includes the store's dispatch to execute actions when a listener is fired.
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
-import { createMiddleware } from 'redux-action-middleware';
+import { createMiddleware } from 'redux-listeners';
 
 // import your reducers
 import rootReducer from './reducers'; 
 
 // create action middleware
-const actionMiddleware = createMiddleware();
+const listenMiddleware = createMiddleware();
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(actionMiddleware),
+  applyMiddleware(listenMiddleware),
 );
 
 // register listeners to middleware
-actionMiddleware.addListener('INIT', (dispatch) => {
+listenMiddleware.addListener('INIT', (dispatch) => {
   dispatch({ type: 'FETCH_DATA' });
 });
 
-actionMiddleware.addListener('FETCH_DATA', (dispatch) => {
+listenMiddleware.addListener('FETCH_DATA', (dispatch) => {
   fetch('/some-data')
     .then(response => response.text())
     .then(text => dispatch({ type: 'FETCH_DATA_SUCCESS', payload: text }))
