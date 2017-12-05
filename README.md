@@ -1,6 +1,7 @@
 # Redux Listeners
 
-[![npm](https://img.shields.io/npm/v/redux-listeners.svg)](https://www.npmjs.com/package/redux-listeners)
+[![npm version](https://img.shields.io/npm/v/redux-listeners.svg)](https://www.npmjs.com/package/redux-listeners)
+[![Build Status](https://travis-ci.org/Gaya/redux-listeners.svg?branch=master)](https://travis-ci.org/Gaya/redux-listeners)
 
 Redux middleware which allows listening in on and handling of dispatched actions
 
