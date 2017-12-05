@@ -3,9 +3,7 @@ import test from 'tape';
 import { createMiddleware } from '../src/actionMiddleware';
 
 const mockStore = {
-  dispatch() {
-
-  },
+  dispatch() {},
 };
 
 test('Creating middleware', (t) => {
