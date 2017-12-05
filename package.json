@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Redux middleware which allows listening in on and handling of dispatched actions",
   "main": "lib/listenerMiddleware.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "directories": {
     "lib": "lib"
   },
@@ -10,7 +14,6 @@
     "clean": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run clean && npm run test && npm run build",
-    "postinstall": "npm run build",
     "test": "tape -r babel-register test/listenerMiddleware.js"
   },
   "repository": {
@@ -25,7 +28,7 @@
     "middleware",
     "redux-middleware"
   ],
-  "author": "Gaya Kessler <gaya@theclevernode.com>",
+  "author": "Gaya Kessler <gaya@theclevernode.com> (https://theclevernode.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Gaya/redux-listeners/issues"
