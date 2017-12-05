@@ -8,9 +8,11 @@ npm install --save redux-listeners
 
 ## Who needs this?
 
-For those who want to listen to actions dispatched on the Redux store and act upon them.
+For those who want to listen in on actions dispatched to the Redux store.
 
-Includes the store's dispatch to execute actions when a listener is fired.
+Includes the store's dispatch method to dispatch new actions after a listener is fired.
+
+Much like `redux-saga`, but a way more toned down implementation which also allows for `async/await`.
 
 ## Example
 
@@ -48,8 +50,8 @@ actionMiddleware.addListener('FETCH_DATA_FAILED', (dispatch, action) => {
 
 store.dispatch({ type: 'INIT' });
   // This will fire the 'INIT' listener
-  // Which in turn dispatched the 'FETCH_DATA' action
-  // 'FETCH_DATA' listener is fired and synchronously dispatches response actions
+  // Which in turn dispatches the 'FETCH_DATA' action
+  // 'FETCH_DATA' listener is fired and asynchronously dispatches response actions
 ```
 
 ## Usage
