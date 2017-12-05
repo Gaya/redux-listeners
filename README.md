@@ -1,5 +1,7 @@
 # Redux Listeners
 
+[![npm](https://img.shields.io/npm/v/redux-listeners.svg)](https://www.npmjs.com/package/redux-listeners)
+
 Redux middleware which allows listening in on and handling of dispatched actions
 
 ```
