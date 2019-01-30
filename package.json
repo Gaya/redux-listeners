@@ -1,6 +1,6 @@
 {
   "name": "redux-listeners",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Redux middleware which allows listening in on and handling of dispatched actions",
   "main": "lib/listenerMiddleware.js",
   "files": [
@@ -14,7 +14,7 @@
     "clean": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run clean && npm run test && npm run build",
-    "test": "tape -r babel-register test/listenerMiddleware.js"
+    "test": "tape -r @babel/register test/listenerMiddleware.js"
   },
   "repository": {
     "type": "git",
@@ -35,9 +35,11 @@
   },
   "homepage": "https://github.com/Gaya/redux-listeners#readme",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "rimraf": "^2.6.2",
-    "tape": "^4.8.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "rimraf": "^2.6.3",
+    "tape": "^4.9.2"
   }
 }
