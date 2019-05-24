@@ -1,6 +1,6 @@
 {
   "name": "redux-listeners",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Redux middleware which allows listening in on and handling of dispatched actions",
   "main": "lib/listenerMiddleware.js",
   "typings": "src/listenerMiddleware.d.ts",
