@@ -1,8 +1,9 @@
 {
   "name": "redux-listeners",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Redux middleware which allows listening in on and handling of dispatched actions",
   "main": "lib/listenerMiddleware.js",
+  "typings": "src/listenerMiddleware.d.ts",
   "files": [
     "lib",
     "src"
@@ -39,6 +40,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
+    "redux": "^4.0.1",
     "rimraf": "^2.6.3",
     "tape": "^4.9.2"
   }
