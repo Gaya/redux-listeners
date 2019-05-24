@@ -1,10 +1,10 @@
 import { Action, Dispatch, Middleware } from 'redux';
 
-type listener = (dispatch: Dispatch, action: Action) => void;
+export type ReduxListener = (dispatch: Dispatch, action: Action) => void;
 
 interface ReduxListenerMiddleware extends Middleware {
-  addListener(actionType: string | string[], listener: listener): void;
-  addListeners(actionType: string | string[], listeners: listener[]): void;
+  addListener(actionType: string | string[], listener: ReduxListener): void;
+  addListeners(actionType: string | string[], listeners: ReduxListener[]): void;
 }
 
 export function createMiddleware(): ReduxListenerMiddleware;
